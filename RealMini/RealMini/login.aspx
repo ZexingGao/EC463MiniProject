@@ -44,7 +44,7 @@
         <br />
         Password :&nbsp;
         </font>
-        <asp:TextBox ID="password" TextMode="Password"runat="server" CssClass="auto-style2"></asp:TextBox>
+        <asp:TextBox ID="password" runat="server" CssClass="auto-style2"></asp:TextBox>
              <font size="3">
         <asp:CheckBox ID="Remember" runat="server" Text="Remember me" />
         <br />

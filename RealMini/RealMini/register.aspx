@@ -18,7 +18,7 @@
         .auto-style3 {
             font-size: 30pt;
             width: 847px;
-            height: 376px;
+            height: 544px;
         }
     </style>
 </head>
@@ -53,7 +53,8 @@
              </font>
         <br />
              <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Confirm" />
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Back" />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              <br />
         &nbsp;<br />
         <br />
