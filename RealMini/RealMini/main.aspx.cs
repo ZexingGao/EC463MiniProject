@@ -22,10 +22,12 @@ namespace RealMini
         protected void Button1_Click(object sender, EventArgs e)
         {
             bool ButtonIsClick = true;
-            int Id = 1; 
+            int count = 0;
+            int Id = 1;
             while (ButtonIsClick == true)
             {
                 Random temperature = new Random();
+
                 int t = temperature.Next(-50, 60);//generate random temperature
 
                 Random humidity = new Random();
@@ -33,8 +35,8 @@ namespace RealMini
 
                 SqlConnection conn = new SqlConnection(connString);
                 conn.Open();
-                
-                SqlCommand cmd = new SqlCommand("INSERT INTO dataplot" + 
+
+                SqlCommand cmd = new SqlCommand("INSERT INTO dataplot" +
                     " (Id, temperature, humidity, time)" + "VALUES(@Id, @temperature, @humidity, @time)", conn);
                 // create parameters
                 cmd.Parameters.Add("@Id", System.Data.SqlDbType.Int);
@@ -63,7 +65,11 @@ namespace RealMini
                 * 
                 * 
                 * 
-                * 
+                * if (count == 0)
+                {
+                    Response.AddHeader("Refresh", "0");
+                    count++;
+                }
                 * 
                 * 
                 * 
@@ -72,12 +78,14 @@ namespace RealMini
                 * 
                 */
 
-                Thread.Sleep(1000);//refresh every 1 sec
+
+                Thread.Sleep(5000);//refresh every 1 sec
                 //ButtonIsClick = false;
             }
-
-
         }
+
+
+
 
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -89,6 +97,16 @@ namespace RealMini
             conn.Close();
 
             Response.Redirect("login.aspx");
+        }
+        protected void Tick(object sender, EventArgs e)
+        {
+            UpdatePanel1.Update();
+            Chart1.DataBind();//如果显示数据是GridView的话
+        }
+
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

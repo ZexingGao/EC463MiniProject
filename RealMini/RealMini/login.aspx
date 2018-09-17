@@ -34,11 +34,12 @@
              <strong>Welcome to Environmental Monitor<br class="auto-style1" />
         </strong>
         <br />
+             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [userinfo]"></asp:SqlDataSource>
         <br />
     
              <font size="3">User:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </font>
-        <asp:TextBox ID="user" runat="server" CssClass="auto-style2"></asp:TextBox>
+        <asp:TextBox ID="username" runat="server" CssClass="auto-style2"></asp:TextBox>
              <font size="3">
         <br />
         <br />
