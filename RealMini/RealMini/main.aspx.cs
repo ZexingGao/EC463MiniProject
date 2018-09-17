@@ -21,9 +21,9 @@ namespace RealMini
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            bool check = true;
+            bool ButtonIsClick = true;
             int Id = 1; 
-            while (check == true)
+            while (ButtonIsClick == true)
             {
                 Random temperature = new Random();
                 int t = temperature.Next(-50, 60);//generate random temperature
@@ -52,11 +52,28 @@ namespace RealMini
                 int RowsAffected = cmd.ExecuteNonQuery();
 
                 Id += 1;//Id is the private key for the table
-
                 conn.Close();
 
+
+                /*
+                *Add your code here
+                *love you
+                * 
+                * 
+                * 
+                * 
+                * 
+                * 
+                * 
+                * 
+                * 
+                * 
+                * 
+                * 
+                */
+
                 Thread.Sleep(1000);//refresh every 1 sec
-                
+                //ButtonIsClick = false;
             }
 
 
@@ -64,6 +81,13 @@ namespace RealMini
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+            //clean the current simulated data
+            SqlConnection conn = new SqlConnection(connString);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM dataplot", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
             Response.Redirect("login.aspx");
         }
     }
