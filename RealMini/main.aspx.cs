@@ -14,15 +14,25 @@ namespace RealMini
 {
     public partial class main : System.Web.UI.Page
     {
+        
+
         private const string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename = |DataDirectory|\userinfo.mdf;";
         protected void Page_Load(object sender, EventArgs e)
         {
             //Thread.Sleep(5000);//refresh every 1 sec
             Random temperature = new Random((int)DateTime.Now.Ticks);
-            int t = temperature.Next(10, 20);//generate random temperature
-
+            int t = temperature.Next(18, 25);//generate random temperature
+            
             Random humidity = new Random();
             int h = humidity.Next(75, 80);//generate random humidity
+
+            float avg_temperature=0;
+            float avg_humidity =0;
+
+            avg_temperature = (avg_temperature+t) / Convert.ToInt32(avg_counter.Text);
+            avg_temp.Text = Convert.ToString(avg_temperature);
+            avg_humidity = (avg_humidity + h) / Convert.ToInt32(avg_counter.Text);
+            avg_humi.Text = Convert.ToString(avg_humidity);
 
             SqlConnection conn = new SqlConnection(connString);
             conn.Open();
@@ -46,6 +56,13 @@ namespace RealMini
 
             //Id += 1;//Id is the private key for the table
             conn.Close();
+
+            SqlConnection conn2 = new SqlConnection(connString);
+            conn2.Open();
+
+            conn2.Close();
+
+            avg_counter.Text += 1;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -55,14 +72,8 @@ namespace RealMini
             //int Id = 2;
             //while (ButtonIsClick == true)
             //{
-                
-                
-                
-
-
                 /*
                 *Add your code here
-                *love you
                 * 
                 * 
                 * 
@@ -111,6 +122,21 @@ namespace RealMini
         }
 
         protected void Timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            conn.Open();
+            //SqlCommand cmd = new SqlCommand("INSERT INTO dataplot" +
+            //" (Id, temperature, humidity, time)" + "VALUES(@Id, @temperature, @humidity, @time)", conn);
+
+            conn.Close();
+        }
+
+        protected void TextBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

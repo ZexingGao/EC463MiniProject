@@ -60,11 +60,24 @@ namespace RealMini
             SqlCommand cmd2 = new SqlCommand("SELECT userid FROM userinfo where userid = '" + username.Text + "'", conn2);
             SqlDataReader rdr = cmd.ExecuteReader();
             SqlDataReader rdr2 = cmd2.ExecuteReader();
+            SqlConnection conn4 = new SqlConnection(connString);
+            conn4.Open();
+            SqlCommand cmd4 = new SqlCommand("INSERT INTO userinfo" +
+            " (current_user)" + "VALUES(@current_user)", conn4);
+            cmd4.Parameters.Add("@current_user", System.Data.SqlDbType.Int);
+
+            SqlDataReader rdr4 = cmd4.ExecuteReader();
 
             if (rdr2.HasRows)
             {
                 if (rdr.HasRows)
                 {
+                    
+                    cmd4.Parameters["@current_user"].Value = 1;
+                    
+                    conn4.Close();
+
+
                     Response.Redirect("main.aspx");
                 }
                 else

@@ -37,11 +37,19 @@
              
 
             
-       <!--><asp:ScriptManager ID="ScriptManager2" runat="server">
+       &nbsp;&nbsp;&nbsp;
+             <asp:Label ID="Label1" runat="server" Text="Average temperature is: " style="font-size: medium"></asp:Label>
+&nbsp;<asp:Label ID="avg_temp" runat="server" Text="Label"></asp:Label>
+&nbsp;<asp:ScriptManager ID="ScriptManager2" runat="server">
   </asp:ScriptManager>
+             <br />
+             <asp:Label ID="Label2" runat="server" Text="Average humidity is: " style="font-size: medium"></asp:Label>
+             <asp:Label ID="avg_humi" runat="server" Text="Label"></asp:Label>
+             <br />
+             <asp:Label ID="avg_counter" runat="server" Text="1"></asp:Label>
   <asp:UpdatePanel ID="UpdatePanel1" runat="server">
   <ContentTemplate>&nbsp;<asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Exit" />
-<asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource1" Height="361px" Width="642px">
+<asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource1" Height="361px" Width="1677px">
 
                  <Series>
                      <asp:Series ChartType="Line" Name="Humidity" XValueMember="time" YValueMembers="humidity" Legend="Humidity" IsValueShownAsLabel="True">
@@ -73,6 +81,7 @@
  <!--> 
   <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick">
   </asp:Timer>
+      &nbsp;
   </ContentTemplate>
   <Triggers>
   <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick"></asp:AsyncPostBackTrigger>
