@@ -20,7 +20,7 @@ namespace RealMini
         {
             if (username.Text != "" & password.Text != "" & username.Text.Length < 17 & username.Text.Length > 5 & password.Text.Length > 5)
             {
-                bool check = true;
+                //bool check = true;
                 SqlConnection conn = new SqlConnection(connString);
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("SELECT userid FROM userinfo where userid = '" + username.Text + "'", conn);
@@ -48,6 +48,11 @@ namespace RealMini
         {
             
                 
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("login.aspx");
         }
     }
 }
