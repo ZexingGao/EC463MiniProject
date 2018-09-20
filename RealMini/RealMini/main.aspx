@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <meta http-equiv="refresh"content="10"; url= "main.aspx">
+    <meta http-equiv="refresh"content="1"; url= "main.aspx">
 <style type="text/css">
         .auto-style1 {
             font-size: 30pt;
@@ -25,7 +25,7 @@
 </head>
 <body class="newStyle1">
 
-
+    <meta http-equiv="REFRESH" content="10">
     <form id="form1" runat="server">
 
 
@@ -36,15 +36,11 @@
              <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [dataplot]"></asp:SqlDataSource>
              
 
-
-             <asp:ScriptManager ID="ScriptManager2" runat="server">
+            
+       <!--><asp:ScriptManager ID="ScriptManager2" runat="server">
   </asp:ScriptManager>
   <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-  <ContentTemplate>
-  <%= DateTime.Now.ToString() %>
-  <!--GridView控件在后台进行绑定--->
-      <asp:Button ID="Button1" runat="server" OnClick="Button1_Click"  Text=" Start to Simulate"  />
-             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Exit" />
+  <ContentTemplate>&nbsp;<asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Exit" />
 <asp:Chart ID="Chart1" runat="server" DataSourceID="SqlDataSource1" Height="361px" Width="642px">
 
                  <Series>
@@ -68,7 +64,13 @@
                      </asp:Title>
                  </Titles>
              </asp:Chart>
-  <!--定时器每5秒钟刷新一次UpdatePanel中的数据-->
+
+
+
+
+
+
+ <!--> 
   <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick">
   </asp:Timer>
   </ContentTemplate>
@@ -76,11 +78,8 @@
   <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick"></asp:AsyncPostBackTrigger>
   </Triggers>
   </asp:UpdatePanel>
-             
-    
-             </strong>
-            
-        </div>
+          
+             &nbsp;</strong></div>
 
 
 

@@ -72,7 +72,6 @@
     <Content Include="App_Data\userinfo_log.ldf">
       <DependentUpon>userinfo.mdf</DependentUpon>
     </Content>
-    <Content Include="HtmlPage1.html" />
     <Content Include="login.aspx" />
     <Content Include="main.aspx" />
     <Content Include="register.aspx" />
@@ -104,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
