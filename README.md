@@ -2,7 +2,7 @@ This is WEB applicable repo for 463 Mini Project
 
 *****************************************************************************
 IMPORTANT NOTE!
-PLEASE USE "FINAL PRODUCT BRANCH" INSTEAD MASTER TO REVIEW OUR FINAL CODE!
+PLEASE USE "FINAL PRODUCT BRANCH" INSTEAD OF MASTER TO REVIEW OUR FINAL CODE!
 *****************************************************************************
 
 
