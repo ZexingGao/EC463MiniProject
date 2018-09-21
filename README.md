@@ -14,7 +14,7 @@ Cong Han
 2. UI design
 
 To whom trying to use the App:
-If you want to use the App, please download the zip file and open RealMini.sln via Visual Studio. We apologize for the inconvenience of using, and the reason is described in following section. For the grader, if you do not have enough time to download VS, you can see our Wiki page https://github.com/ZexingGao/EC463MiniProject/wiki for using detail descriptions. 
+If you want to use the App, please download the zip file and open RealMini.sln via Visual Studio. We apologize for the inconvenience of using, and the reason is described in following section. For the grader, if you do not have enough time to download VS, you can see our Wiki page https://github.com/ZexingGao/EC463MiniProject/wiki for result of using descriptions. 
 
 
 Description of flaws:
