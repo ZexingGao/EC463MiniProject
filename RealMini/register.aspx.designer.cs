@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RealMini {
-    
-    
-    public partial class register {
-        
+namespace RealMini
+{
+
+
+    public partial class register
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace RealMini {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace RealMini {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-        
+
         /// <summary>
         /// username control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace RealMini {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox username;
-        
+
         /// <summary>
         /// password control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace RealMini {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox password;
-        
+
         /// <summary>
         /// error control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace RealMini {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label error;
-        
+
         /// <summary>
         /// Button1 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace RealMini {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-        
+
         /// <summary>
         /// Button2 control.
         /// </summary>

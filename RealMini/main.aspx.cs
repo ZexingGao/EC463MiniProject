@@ -14,25 +14,39 @@ namespace RealMini
 {
     public partial class main : System.Web.UI.Page
     {
-        
+
 
         private const string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename = |DataDirectory|\userinfo.mdf;";
         protected void Page_Load(object sender, EventArgs e)
         {
             //Thread.Sleep(5000);//refresh every 1 sec
+
             Random temperature = new Random((int)DateTime.Now.Ticks);
             int t = temperature.Next(18, 25);//generate random temperature
-            
+
             Random humidity = new Random();
             int h = humidity.Next(75, 80);//generate random humidity
 
-            float avg_temperature=0;
-            float avg_humidity =0;
+            float avg_temperature = 0;
+            float avg_humidity = 0;
 
-            avg_temperature = (avg_temperature+t) / Convert.ToInt32(avg_counter.Text);
+            SqlConnection conn5 = new SqlConnection(connString);
+            conn5.Open();
+            SqlCommand cmd5 = new SqlCommand("SELECT * FROM userinfo where [current] = '1'", conn5);
+            SqlDataReader rdr5 = cmd5.ExecuteReader();
+            while (rdr5.Read())
+            {
+
+
+                name.Text = Convert.ToString(rdr5["userid"]);
+            }
+            conn5.Close();
+
+            avg_temperature = (avg_temperature + t) / Convert.ToInt32(avg_counter.Text);
             avg_temp.Text = Convert.ToString(avg_temperature);
             avg_humidity = (avg_humidity + h) / Convert.ToInt32(avg_counter.Text);
             avg_humi.Text = Convert.ToString(avg_humidity);
+
 
             SqlConnection conn = new SqlConnection(connString);
             conn.Open();
@@ -46,7 +60,7 @@ namespace RealMini
 
             // set values to parameters
             //cmd.Parameters["@Id"].Value = Convert.ToInt32(cmd.Parameters["@Id"].Value);
-            cmd.Parameters["@Id"].Value = Convert.ToInt32(Convert.ToInt32(cmd.Parameters["@Id"].Value)+2);
+            cmd.Parameters["@Id"].Value = Convert.ToInt32(Convert.ToInt32(cmd.Parameters["@Id"].Value) + 2);
             cmd.Parameters["@temperature"].Value = Convert.ToInt32(t);
             cmd.Parameters["@humidity"].Value = Convert.ToInt32(h);
             cmd.Parameters["@time"].Value = DateTime.Now;
@@ -67,35 +81,7 @@ namespace RealMini
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //bool ButtonIsClick = true;
-            //int count = 0;
-            //int Id = 2;
-            //while (ButtonIsClick == true)
-            //{
-                /*
-                *Add your code here
-                * 
-                * 
-                * 
-                * 
-                * 
-                * if (count == 0)
-                {
-                    Response.AddHeader("Refresh", "0");
-                    count++;
-                }
-                * 
-                * 
-                * 
-                * 
-                * 
-                * 
-                */
 
-
-                //Thread.Sleep(20000);//refresh every 1 sec
-                //ButtonIsClick = false;
-            //}
         }
 
 
@@ -103,42 +89,12 @@ namespace RealMini
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            /*
-            //clean the current simulated data
-            SqlConnection conn = new SqlConnection(connString);
-            conn.Open();
-            //SqlCommand cmd = new SqlCommand("DELETE FROM dataplot WHERE Id != 1", conn);
-            SqlCommand cmd = new SqlCommand("DELETE FROM dataplot", conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            */
 
             Response.Redirect("login.aspx");
         }
-        protected void Tick(object sender, EventArgs e)
-        {
-            UpdatePanel1.Update();
-            Chart1.DataBind();//如果显示数据是GridView的话
-        }
 
-        protected void Timer1_Tick(object sender, EventArgs e)
-        {
 
-        }
 
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-            SqlConnection conn = new SqlConnection(connString);
-            conn.Open();
-            //SqlCommand cmd = new SqlCommand("INSERT INTO dataplot" +
-            //" (Id, temperature, humidity, time)" + "VALUES(@Id, @temperature, @humidity, @time)", conn);
 
-            conn.Close();
-        }
-
-        protected void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

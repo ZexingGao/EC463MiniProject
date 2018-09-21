@@ -10,8 +10,18 @@ namespace RealMini
     public partial class login : System.Web.UI.Page
     {
         private const string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename = |DataDirectory|\userinfo.mdf;";
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            SqlConnection conn8 = new SqlConnection(connString);
+            conn8.Open();
+
+
+            string sql3 = "update userinfo set [current] = '0' where [current] = '1'";
+            SqlCommand cmd9 = new SqlCommand(sql3, conn8);
+            cmd9.ExecuteNonQuery();
+
+            conn8.Close();
 
         }
 
@@ -52,6 +62,15 @@ namespace RealMini
             conn_dataplot.Close();
 
 
+
+
+
+
+
+
+
+
+
             SqlConnection conn = new SqlConnection(connString);
             SqlConnection conn2 = new SqlConnection(connString);
             conn.Open();
@@ -60,22 +79,24 @@ namespace RealMini
             SqlCommand cmd2 = new SqlCommand("SELECT userid FROM userinfo where userid = '" + username.Text + "'", conn2);
             SqlDataReader rdr = cmd.ExecuteReader();
             SqlDataReader rdr2 = cmd2.ExecuteReader();
-            SqlConnection conn4 = new SqlConnection(connString);
-            conn4.Open();
-            SqlCommand cmd4 = new SqlCommand("INSERT INTO userinfo" +
-            " (current_user)" + "VALUES(@current_user)", conn4);
-            cmd4.Parameters.Add("@current_user", System.Data.SqlDbType.Int);
 
-            SqlDataReader rdr4 = cmd4.ExecuteReader();
+
 
             if (rdr2.HasRows)
             {
                 if (rdr.HasRows)
                 {
-                    
-                    cmd4.Parameters["@current_user"].Value = 1;
-                    
+                    conn.Close();
+                    conn2.Close();
+                    SqlConnection conn4 = new SqlConnection(connString);
+                    conn4.Open();
+
+                    string sql = "update userinfo set [current] = '1' where userid = '" + username.Text + "'";
+                    SqlCommand cmd4 = new SqlCommand(sql, conn4);
+                    cmd4.ExecuteNonQuery();
+
                     conn4.Close();
+
 
 
                     Response.Redirect("main.aspx");
@@ -89,8 +110,8 @@ namespace RealMini
             {
                 error.Text = "Please register";
             }
-            conn.Close();
-            conn2.Close();
+
+
         }
     }
 }

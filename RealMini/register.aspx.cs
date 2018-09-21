@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 namespace RealMini
 {
-    
+
     public partial class register : System.Web.UI.Page
     {
         private const string connString = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename = |DataDirectory|\userinfo.mdf;";
@@ -31,9 +31,9 @@ namespace RealMini
                 }
                 else
                 {
-                        SqlDataSource1.Insert();
-                        error.Text = "";
-                        Response.Redirect("login.aspx");
+                    SqlDataSource1.Insert();
+                    error.Text = "";
+                    Response.Redirect("login.aspx");
 
                 }
                 conn.Close();
@@ -46,8 +46,8 @@ namespace RealMini
 
         protected void username_TextChanged(object sender, EventArgs e)
         {
-            
-                
+
+
         }
 
         protected void Button2_Click(object sender, EventArgs e)

@@ -14,14 +14,17 @@
         .newStyle1 {
             font-family: "times New Roman", Times, serif;
         }
-        .auto-style2 {
-            font-size: 12pt;
-        }
         .auto-style3 {
             font-size: 30pt;
-            width: 847px;
-            height: 376px;
+            width: 1312px;
+            height: 698px;
         }
+    .newStyle2 {
+        font-family: "comic Sans MS";
+    }
+    .auto-style4 {
+        font-size: x-large;
+    }
     </style>
 </head>
 <body class="newStyle1">
@@ -31,29 +34,37 @@
 
 
          <div style="background-color: powderblue; border-style: solid; border-width: thin; margin: auto; padding: 30px; " class="auto-style3">
-             <strong>Welcome to Environmental Monitor<br class="auto-style1" />
+             <strong><span class="newStyle2">Welcome to Environmental Monitor<br class="auto-style1" />
+             </span>
         </strong>
+             <span class="newStyle2">
         <br />
+             </span>
              <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [userinfo]"></asp:SqlDataSource>
+             <span class="newStyle2">
         <br />
     
-             <font size="3">User:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        </font>
-        <asp:TextBox ID="username" runat="server" CssClass="auto-style2"></asp:TextBox>
-             <font size="3">
+             <span class="auto-style4">User:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </span></span>
+        <asp:TextBox ID="username" runat="server" CssClass="auto-style4"></asp:TextBox>
+             <span class="newStyle2"><span class="auto-style4">
         <br />
         <br />
         Password :&nbsp;
-        </font>
-        <asp:TextBox ID="password" TextMode="Password" runat="server" CssClass="auto-style2"></asp:TextBox>
-             <font size="3">
-        <asp:CheckBox ID="Remember" runat="server" Text="Remember me" />
+        </span></span>
+        <asp:TextBox ID="password" TextMode="Password" runat="server" CssClass="auto-style4"></asp:TextBox>
+             <font size="3" class="auto-style4">
+             <span class="newStyle2">
         <br />
+             </span>
         <asp:Label ID="error" runat="server"></asp:Label>
              </font>
+             <span class="newStyle2">
         <br />
+             </span>
              <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Register" />
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <span class="newStyle2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             </span>
              <asp:Button ID="Button2" runat="server" Text="Login" OnClick="Button2_Click" />
         <br />
         &nbsp;<br />
