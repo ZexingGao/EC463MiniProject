@@ -1,7 +1,10 @@
 This is WEB applicable repo for 463 Mini Project
 
+*****************************************************************************
 IMPORTANT NOTE!
 PLEASE USE "FINAL PRODUCT BRANCH" INSTEAD MASTER TO REVIEW OUR FINAL CODE!
+*****************************************************************************
+
 
 Requirement
 Build an application that is secure (requires logging in. This can be via Gmail, Facebook or your own system), the application should basically receive and plot sampled temperature and humidity from a sensor. You do not have to develop the sensor but you are expected to simulate it.
