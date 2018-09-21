@@ -7,11 +7,13 @@ Contribution List:
 Zexing Gao
 1. Login system
 2. Database support
-3. Deployment on cloud service (google cloud platform)
+3. Deployment on cloud service (Google Cloud platform)
+4. Temperature/humidity data simulation
 
 Cong Han
 1. Data plotting
 2. UI design
+3. Average temperature/humidity calculation
 
 To whom trying to use the App:
 If you want to use the App, please download the zip file and open RealMini.sln via Visual Studio. We apologize for the inconvenience of using, and the reason is described in following section. For the grader, if you do not have enough time to download VS, you can see our Wiki page https://github.com/ZexingGao/EC463MiniProject/wiki for result of using descriptions. 
